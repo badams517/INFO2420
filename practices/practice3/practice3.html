@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Practice 3- Links</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* Custom background color from palette */
+      body {
+        background-color: #686c53; /* Olive green background */
+        min-height: 100vh; /* Full height */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Center content vertically */
+      }
+
+      /* Container for content */
+      .content-container {
+        background-color: #ffffff; /* White background */
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 90%; /* Responsive width */
+        max-width: 800px; /* Max width for larger screens */
+      }
+
+      header {
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        position: fixed;
+      }
+
+      /* Adding padding-top to the body to account for fixed header */
+      .body-content {
+        padding-top: 80px; /* Adjust based on header height */
+      }
+
+      /* Button style */
+      .button {
+        background-color: #2dba94; /* Teal green color */
+        color: white !important; /* Ensure text color is white */
+        text-decoration: none;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+      }
+
+      .button:hover {
+        background-color: #003e82; /* Dark blue on hover */
+      }
+
+      /* Set scroll-margin-top for proper offset */
+      .scroll-offset {
+        scroll-margin-top: 100px; /* Adjust this value to match or slightly exceed your header's height */
+      }
+
+      a:link {
+        color: #dabc94;
+      }
+      a:visited {
+        color: #2dba94;
+      }
+      a:hover {
+        color: #dabc94;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top of the page anchor -->
+    <div id="Top"></div>
+
+    <!-- Header with Navigation Tabs and Logo -->
+    <header
+      class="w-full bg-opacity-80 bg-[#304E47] p-4 shadow-lg flex justify-center"
+    >
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo and Navigation Tabs -->
+        <div class="flex items-center space-x-4">
+          <img
+            src="../../photos/picturelogo.png"
+            alt="Logo"
+            class="h-16 w-16"
+          />
+          <nav class="flex space-x-4">
+            <a href="../../index.html" class="button">Back to Home</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Body Content Wrapper to include padding for fixed header -->
+    <div class="body-content w-full flex justify-center">
+      <!-- Content Container -->
+      <div class="content-container mt-8">
+        <!--############################################################
+                    HTML PRACITCE 3- LINKS ASSIGNMENT
+              ***This is using Tailwind CSS for styling***
+              It will be using classes to style the content
+            There will be a closing comments to show end of assignment
+            like this one. and will be marked with a closing comment
+        ################################################################-->
+
+        <!--############################################################
+                              START OF ASSIGNMENT
+        ################################################################-->
+
+        <h2 class="text-2xl mb-4">A Few of My Favorite Things</h2>
+        <p>
+          <span class="text-blue-500 underline"
+            ><a href="#Things">Things I Like</a></span
+          >&nbsp;&nbsp; <span class="separator">|</span>&nbsp;&nbsp;
+          <span class="text-blue-500 underline"><a href="#Pets">Pets</a></span
+          >&nbsp;&nbsp; <span class="separator">|</span>&nbsp;&nbsp;
+          <span class="text-blue-500 underline"><a href="#TV">TV Shows</a></span
+          >&nbsp;&nbsp; <span class="separator">|</span>&nbsp;&nbsp;
+          <span class="text-blue-500 underline"><a href="#Books">Books</a></span
+          >&nbsp;&nbsp; <span class="separator">|</span>&nbsp;&nbsp;
+          <span class="text-blue-500 underline"
+            ><a href="#Remarks">Remarks</a></span
+          >
+        </p>
+
+        <br />
+
+        <!-- Applying scroll-offset class directly to elements -->
+        <h3 id="Things" class="text-xl mb-2 scroll-offset">
+          Things I Like to Do:
+        </h3>
+        <ul class="list-disc pl-10 mb-4">
+          <li>
+            <a
+              href="Pages/Reading/Reading.html"
+              target="_blank"
+              class="text-blue-500 underline"
+              >Reading</a
+            >
+          </li>
+          <li>
+            <a
+              href="Pages/Movies.html"
+              class="text-blue-500 underline"
+              target="_blank"
+              >Going to the movies</a
+            >
+          </li>
+          <li>
+            <a
+              href="Pages/Hiking.html"
+              class="text-blue-500 underline"
+              target="_blank"
+              >Hiking and camping</a
+            >
+          </li>
+        </ul>
+
+        <p class="pl-5">
+          <a href="#Top" class="text-blue-500 underline">Return to Top</a>
+        </p>
+
+        <hr class="my-4" />
+
+        <h3 id="Pets" class="text-xl mb-2 scroll-offset">Favorite Pets:</h3>
+        <ul class="list-disc pl-10 mb-4">
+          <li>Dogs</li>
+          <li>Cats</li>
+          <li>Bunnies</li>
+        </ul>
+
+        <p class="pl-5">
+          <a href="#Top" class="text-blue-500 underline">Return to Top</a>
+        </p>
+
+        <hr class="my-4" />
+
+        <h3 id="TV" class="text-xl mb-2 scroll-offset">Favorite TV Shows:</h3>
+        <ul class="list-disc pl-10 mb-4">
+          <!-- Changed list-square to list-disc -->
+          <li>Schitt's Creek</li>
+          <li>New Girl</li>
+          <li>The Bachelorette</li>
+          <li>WandaVision</li>
+          <li>Andor</li>
+          <li>Rick and Morty</li>
+        </ul>
+
+        <p class="pl-5">
+          <a href="#Top" class="text-blue-500 underline">Return to Top</a>
+        </p>
+
+        <hr class="my-4" />
+
+        <h3 id="Books" class="text-xl mb-2 scroll-offset">Favorite Books:</h3>
+        <ul class="list-disc pl-10 mb-4">
+          <li>The Giver</li>
+          <li>The Lord of the Rings Trilogy</li>
+          <li>7 habits of Highly Effective People</li>
+          <li>The Scarlet Letter</li>
+        </ul>
+        <p class="pl-5">
+          <a href="#Top" class="text-blue-500 underline">Return to Top</a>
+        </p>
+
+        <hr class="my-4" />
+
+        <h3 id="Remarks" class="text-xl mb-2 scroll-offset">Final Remarks:</h3>
+        <p class="mb-4 pl-10 italic">
+          If you would like, you are welcomed to modify these lists of favorite
+          things to be your own favorite things. Feel free to express your true
+          feelings or not. You may also insert additional items to these lists
+          or delete items.
+        </p>
+        <p class="mb-4 pl-10 italic">
+          This practice will help you become more familiar with creating links
+          and linking to named fragments. You will also add a mailto link.
+        </p>
+        <p class="pl-5">
+          <a href="#Top" class="text-blue-500 underline">Return to Top</a>
+        </p>
+
+        <hr class="my-4" />
+
+        <h3 class="text-xl mb-2">Contact the Author by Email:</h3>
+        <p class="pl-10">
+          Email:
+          <a href="mailto:BlakeA@uvu.edu" class="text-blue-500 underline"
+            >Blake Adams</a
+          >
+        </p>
+        <br />
+        <p class="pl-5">
+          <a href="#Top" class="text-blue-500 underline">Return to Top</a>
+        </p>
+      </div>
+    </div>
+
+    <!--############################################################
+                          END OF ASSIGNMENT
+    ################################################################-->
+  </body>
+</html>
