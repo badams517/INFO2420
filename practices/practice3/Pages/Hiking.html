@@ -1,110 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTML Linking Practice Hiking Page</title>
+<head>
+  <meta charset="UTF-8">
+  <title>Hiking and Camping Page</title>
+</head>
+<body>
+  <h1>Hiking and Camping Page</h1>
+  <h2>Places I Like to Camp and Hike</h2>
+  <ul>
+    <li>Havasupai Falls</li>
+    <li>Lake Powell</li>
+    <li>Moab</li>
+    <li>Zion National Park</li>
+  </ul>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-      /* Custom background color from palette */
-      body {
-        background-color: #686c53; /* Olive green background */
-        min-height: 100vh; /* Full height */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; /* Center content vertically */
-      }
-
-      /* Container for content */
-      .content-container {
-        background-color: #ffffff; /* White background */
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        width: 90%; /* Responsive width */
-        max-width: 800px; /* Max width for larger screens */
-      }
-
-      header {
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 20;
-        position: fixed;
-      }
-
-      /* Adding padding-top to the body to account for fixed header */
-      .body-content {
-        padding-top: 80px; /* Adjust based on header height */
-      }
-
-      /* Button style */
-      .button {
-        background-color: #2dba94; /* Teal green color */
-        color: white !important; /* Ensure text color is white */
-        text-decoration: none;
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
-      }
-
-      .button:hover {
-        background-color: #003e82; /* Dark blue on hover */
-      }
-    </style>
-
-    <script>
-      function returnHome() {
-        // Close the current window
-        window.close();
-      }
-    </script>
-  </head>
-  <body>
-    <!-- Header with Navigation Tabs and Logo -->
-    <header
-      class="w-full bg-opacity-80 bg-[#304E47] p-4 shadow-lg flex justify-center"
-    >
-      <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo and Navigation Tabs -->
-        <div class="flex items-center space-x-4">
-          <img
-            src="../../../photos/fullnamelogoside.png"
-            alt="Logo"
-            class="h-16 object-contain"
-          />
-        </div>
-      </div>
-    </header>
-
-    <!-- Body Content Wrapper to include padding for fixed header -->
-    <div class="body-content w-full flex justify-center">
-      <!-- Content Container -->
-      <div class="content-container mt-8">
-        <h2 class="text-2xl mb-4">Hiking and Camping Page</h2>
-
-        <h4 class="text-xl mb-2">Places I like to camp and hike</h4>
-        <ul class="list-disc pl-10 mb-4">
-          <li>Havasupai Falls</li>
-          <li>Lake Powell</li>
-          <li>Moab</li>
-          <li>Zion National Park</li>
-        </ul>
-
-        <p class="mt-4">
-          <a
-            href="#"
-            class="text-blue-500 underline"
-            title="Return to previous window"
-            onclick="returnHome()"
-            >Return Home</a
-          >
-        </p>
-      </div>
-    </div>
-  </body>
+  <p>
+    <a href="../index.html">Return Home</a>
+  </p>
+</body>
 </html>
