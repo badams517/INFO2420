@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom background color from palette */
+      body {
+        background-color: #8a6f77; /* Olive green background */
+        min-height: 100vh; /* Full height */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Center content vertically */
+      }
+
+      /* Container for content */
+      .content-container {
+        background-color: #ffffff; /* White background */
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 90%; /* Responsive width */
+        max-width: 800px; /* Max width for larger screens */
+      }
+
+      header {
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        position: fixed;
+      }
+
+      /* Adding padding-top to the body to account for fixed header */
+      .body-content {
+        padding-top: 80px; /* Adjust based on header height */
+      }
+
+      /* Button style */
+      .button {
+        background-color: #303a27; /* Teal green color */
+        color: white !important; /* Ensure text color is white */
+        text-decoration: none;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+      }
+
+      .button:hover {
+        background-color: #2a1d2a; /* Dark blue on hover */
+      }
+
+      h1 {
+        font-family: Century, serif;
+        font-variant: small-caps;
+        text-align: center;
+      }
+
+      h2,
+      h3 {
+        font-family: Century, serif;
+        font-variant: small-caps;
+        text-align: left;
+      }
+
+      h3 {
+        font-style: italic;
+      }
+
+      ul {
+        font-variant: small-caps;
+      }
+
+      .QA {
+        font-weight: bolder;
+        font-size: 15px;
+        text-decoration: underline;
+      }
+
+      a:link {
+        color: #b1979f;
+      }
+      a:visited {
+        color: #bcc1a5;
+      }
+      a:hover {
+        color: #391923;
+        background-color: #fff;
+      }
+
+      .custom-margin {
+        margin: 2rem; /* Add space around all sides */
+      }
+
+      /* Apply offset for in-page anchor links */
+      [id]:before {
+        content: "";
+        display: block;
+        height: 100px; /* Increase height to create more space */
+        margin-top: -100px; /* Match the negative margin to the height */
+        visibility: hidden;
+      }
+
+      .blog {
+        background-color: #bcc1a5;
+      }
+      i {
+        font-style: italic;
+        color: #303a27;
+      }
+      .separator {
+        color: #303a27;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="w-full bg-opacity-80 bg-[#3B3F2A] p-4 shadow-lg flex flex-col items-center"
+    >
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo and Navigation Tabs -->
+        <div class="flex items-center space-x-4">
+          <img
+            src="../../photos/picturelogo.png"
+            alt="Logo"
+            class="h-16 w-16"
+          />
+          <nav class="flex space-x-4">
+            <a href="../../index.html" class="button">Back to Home</a>
+          </nav>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-5xl font-bold text-white mx-auto">About Us</h1>
+        <span class="text-blue-500"><a href="#Things">How It All Begin</a></span
+        >&nbsp;&nbsp; <span class="separator">|</span>&nbsp;&nbsp;
+        <span class="text-blue-500"
+          ><a href="#SetApart">Set Things Apart</a></span
+        >&nbsp;&nbsp; <span class="separator">|</span>&nbsp;&nbsp;
+        <span class="text-blue-500"><a href="#Remarks">Remarks</a></span>
+      </div>
+    </header>
+
+    <div class="body-content w-full flex justify-center">
+      <!-- Content Container -->
+      <div class="content-container mt-8">
+        <h1 id="Things" class="text-2xl">How it all Began...</h1>
+        <p class="text-align custom-margin">
+          <i>
+            <img
+              src="./images/Chef3Sm.jpg"
+              alt="Chef Pierre DeBois"
+              class="w-30 h-52 float-left pt-2 pr-4 pb-2 pl-4"
+            />
+            "In 1997, Master Chef Pierre DeBois moved to Utah from New York
+            where he owned and managed a small restaurant called Ma Maison (My
+            Home). His restaurant specialized in French Nouvelle cuisine. Once
+            in Salt Lake City, he realized that the average Utahan doesn't have
+            much appreciation for high cuisine. Pierre and his family were
+            invited to a neighborhood block party one summer and it was there he
+            had his first encounter with Native Cooking of Utah. Pierre noticed
+            how much the locals enjoyed the items brought to this pot luck
+            dinner. They often went back for seconds or thirds. How could he
+            capture this enthusiasm for eating and translate it into his own
+            cooking? In order to answer this question, he began a year long
+            quest to find out the reason for the success of Utah cuisine."</i
+          >
+        </p>
+
+        <p class="pl-5">
+          <a href="#Top" class="text-blue-500 underline">Return to Top</a>
+        </p>
+
+        <h2 id="SetApart" class="text-2xl">Set Things Apart</h2>
+        <p class="inline-block mb-4">
+          Pierre discovered there are some things that set apart Utah cooking
+          from others:
+        </p>
+        <br />
+
+        <ul class="list-disc pl-10 space-y-4">
+          <li class="w-1/2 separator">Simplicity in preparation</li>
+          <li class="w-1/2 separator">Inexpensive ingredients</li>
+          <li class="w-1/2 separator">Ethnic variations available</li>
+          <li class="w-1/2 separator">Feeds large amounts of people</li>
+          <li class="w-1/2 separator">Ease of Serving and Cleanup</li>
+          <li class="w-1/2 separator">Quick and easy recipes</li>
+        </ul>
+        <p class="pl-5">
+          <a href="#Top" class="text-blue-500 underline">Return to Top</a>
+        </p>
+
+        <br />
+        <br />
+
+        <h2 id="Remarks" class="text-2xl">
+          Native Cooking of Utah Goes Online...
+        </h2>
+        <p class="text-align custom-margin">
+          <img
+            src="./images/WineGlassSm.jpg"
+            alt="Green Jello"
+            class="w-30 h-52 float-right pt-2 pr-4 pb-2 pl-4"
+          />
+          <i
+            >So in 2010, Pierre DeBois began gathering recipes for an online
+            cookbook titled: Native Cooking of Utah. Everywhere he could, he
+            begged, borrowed or stole the secret recipes of popular Utah cooks.
+            Many of these recipes had been handed down from generation to
+            generation. In fact, the most well known recipe for green jello even
+            was honored with its own Olympic pin.</i
+          >
+        </p>
+        <p class="text-align custom-margin">
+          <i
+            >The web site for Native Cooking of Utah organizes the recipes by
+            area of the state. For example, salt water taffy from Salt Lake
+            City, and Bear Lake Raspberry ice cream from Bear Lake. Chef Pierre
+            DeBois has traveled the state to gather these recipes. Read the
+            Guestbook to see comments and testimonials from satisfied cooks.</i
+          >
+        </p>
+        <p class="pl-5">
+          <a href="#Top" class="text-blue-500 underline">Return to Top</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
