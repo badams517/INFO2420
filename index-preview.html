@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blake &mdash; INFO 2420</title>
+  <style>
+    /* ── UVU Brand Tokens ── */
+    :root {
+      --green:        #185c33;
+      --green-dark:   #0f3d22;
+      --green-mid:    #1e7040;
+      --green-light:  #e8f2ec;
+      --green-accent: #2daa5f;
+      --white:        #ffffff;
+      --off-white:    #f7faf8;
+      --text:         #1a1a1a;
+      --text-muted:   #5a6b62;
+      --border:       #d4e4da;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--off-white);
+      color: var(--text);
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--green-dark);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      width: 28px;
+      height: 28px;
+      background: var(--green-accent);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: var(--white);
+    }
+
+    .nav-brand span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      height: 520px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      filter: brightness(0.75);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(15,61,34,0.55) 0%,
+        rgba(24,92,51,0.75) 60%,
+        rgba(15,61,34,0.92) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 0 0 0;
+    }
+
+    .hero-content {
+      padding: 48px 56px;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: var(--green-accent);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 12px;
+      border-radius: 3px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      max-width: 640px;
+    }
+
+    .hero-sub {
+      margin-top: 14px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.72);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Profile card that lifts out of hero ── */
+    .profile-lift {
+      position: relative;
+      z-index: 10;
+      margin: -36px 56px 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 8px 32px rgba(24,92,51,0.12);
+    }
+
+    .profile-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+    }
+
+    .profile-info strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .profile-info span {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    .profile-badge {
+      margin-left: auto;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    /* ── Main layout ── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 52px 56px 100px;
+    }
+
+    /* ── Section ── */
+    section {
+      margin-bottom: 60px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .section-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    .section-header h2 {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--green);
+    }
+
+    .section-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Cards ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 20px 20px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.22s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 28px rgba(24,92,51,0.13);
+      transform: translateY(-3px);
+      border-color: var(--green);
+    }
+
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .card-title {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .card-arrow {
+      margin-top: auto;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-arrow::after {
+      content: '→';
+      transition: transform 0.15s;
+    }
+
+    .card:hover .card-arrow::after { transform: translateX(4px); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.8rem;
+    }
+
+    footer strong {
+      color: rgba(255,255,255,0.9);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-brand" href="#">
+      <div class="nav-logo">UVU</div>
+      <span>Blake</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#practice">Practice</a></li>
+      <li><a href="#book">Book</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img src="./university.png" alt="Utah Valley University campus">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <span class="hero-kicker">INFO 2420</span>
+        <h1>Blake's Web Design Portfolio</h1>
+        <p class="hero-sub">Utah Valley University &nbsp;&middot;&nbsp; Web Design &amp; Development &nbsp;&middot;&nbsp; Spring 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile card -->
+  <div class="profile-lift">
+    <div class="profile-avatar">B</div>
+    <div class="profile-info">
+      <strong>Blake</strong>
+      <span>Student &nbsp;&middot;&nbsp; Utah Valley University</span>
+    </div>
+    <div class="profile-badge">Spring 2026</div>
+  </div>
+
+  <!-- Main -->
+  <main>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-header">
+        <div class="section-dot"></div>
+        <h2>Projects</h2>
+      </div>
+      <div class="card-grid">
+        <a class="card" href="./projects/project1/index.html">
+          <div class="card-badge">P1</div>
+          <div class="card-title">Project 1</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./projects/project/project2/about_us.html">
+          <div class="card-badge">P2</div>
+          <div class="card-title">Project 2 &mdash; About Us</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./projects/project/project2/tributes.html">
+          <div class="card-badge">P2</div>
+          <div class="card-title">Project 2 &mdash; Tributes</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./projects/project3/NativeCooking_Tributes.html">
+          <div class="card-badge">P3</div>
+          <div class="card-title">Project 3 &mdash; Tributes</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./projects/project3/NativeCooking_AboutUs.html">
+          <div class="card-badge">P3</div>
+          <div class="card-title">Project 3 &mdash; About Us</div>
+          <div class="card-arrow">View</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Practice -->
+    <section id="practice">
+      <div class="section-header">
+        <div class="section-dot"></div>
+        <h2>Practice Assignments</h2>
+      </div>
+      <div class="card-grid">
+        <a class="card" href="./practices/practice1/index.html">
+          <div class="card-badge">1</div>
+          <div class="card-title">Practice 1</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./practices/practice1/practice1a/index-3.html">
+          <div class="card-badge">1a</div>
+          <div class="card-title">Practice 1a</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./practices/practice2/cactus.html">
+          <div class="card-badge">2</div>
+          <div class="card-title">Practice 2</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./practices/practice3/index.html">
+          <div class="card-badge">3</div>
+          <div class="card-title">Practice 3</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./practices/practice3b/glossary.html">
+          <div class="card-badge">3b</div>
+          <div class="card-title">Practice 3b</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./practices/practice5/practice5.html">
+          <div class="card-badge">5</div>
+          <div class="card-title">Practice 5</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./practices/practice5b/bistro.html">
+          <div class="card-badge">5b</div>
+          <div class="card-title">Practice 5b</div>
+          <div class="card-arrow">View</div>
+        </a>
+        <a class="card" href="./practices/practice6a/practice6a.html">
+          <div class="card-badge">6a</div>
+          <div class="card-title">Practice 6a</div>
+          <div class="card-arrow">View</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Book Assignments -->
+    <section id="book">
+      <div class="section-header">
+        <div class="section-dot"></div>
+        <h2>Book Assignments</h2>
+      </div>
+      <div class="card-grid">
+        <!-- Book assignment links go here -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <strong>Blake</strong> &nbsp;&middot;&nbsp; INFO 2420 &nbsp;&middot;&nbsp; Utah Valley University &nbsp;&middot;&nbsp; &copy; 2026
+  </footer>
+
+</body>
+</html>
